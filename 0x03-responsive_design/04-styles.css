@@ -1,4 +1,4 @@
-* SUMMARY
+/* SUMMARY
 1. GLOBAL
 2. LAYOUT
 3. SECTION
@@ -168,11 +168,6 @@
   /* Helpers
       ============================= */
   
-  main img {
-    width: 100%;
-    height: auto;
-  }
-  
   .visually-hidden:not(:focus):not(:active) {
     position: absolute !important;
     height: 1px;
@@ -180,6 +175,11 @@
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
+  }
+
+  main img {
+    width: 100%;
+    height: auto;
   }
   
   /*** 2. LAYOUT ***/
@@ -218,9 +218,9 @@
     width: calc((100% / 2) - 2rem);
   }
 
-  @media only screen and (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     :root {
-      --section-padding: 5rem 1rem;
+      --section-padding: 5rem 1.5rem;
       --section-body-padding: 2rem 0 0;
     }
 
@@ -229,7 +229,7 @@
       margin: 0;
     }
 
-    [class*="col-"] {
+    [class*='col-'] {
       margin: 0 0 3rem 0;
     }
 
@@ -287,19 +287,21 @@
     width: 100%;
   }
 
-  @media only screen and (max-width: 767px) {
-    :root {
-        --nav-item-margin: 0;
-    }
+  @media screen and (max-width: 767px) {
     .navbar-menu {
       display: none;
       flex: 1;
     }
+
+    :root {
+      --nav-item-margin: 0;
+    }
+
     .header .nav {
-        flex-direction: column;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height .2s ease-out;
+      flex-direction: column;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .2s ease-out;
     }
   }
   
@@ -310,7 +312,7 @@
     padding: var(--header-padding);
     position: relative;
     z-index: 3;
-    background: transparent;
+    background: transparent !important;
   }
   
   .header-container {
@@ -437,13 +439,14 @@
   /* Section Latest news
       ============================= */
   
-  @media only screen and (max-width: 767px) {
+  .section-latest-news .row {
+    flex-direction: row-reverse;
+  }
+
+  @media screen and (max-width: 767px) {
     .section-latest-news .row {
       flex-direction: column;
     }
-  }
-  .section-latest-news .row {
-    flex-direction: row-reverse;
   }
   
   /* Section SERVICES
